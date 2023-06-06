@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+ 
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a class="flex items-center">
+          <img src="climate.png" class="h-8 mr-3" alt="Flowbite Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Weather app</span>
+      </a>
+      <div class="flex items-center justify-center w-full h-full py-4">
+          <input type="search" id="city" placeholder="City name" class="border-[1px] p-2">
+          <button type="submit" class="bg-pink-100 p-2 font-bold focus:outline-none" id="submit">Search</button>
+        </div>
+    </div>
+  </nav>
+  <div>
+    <div>
+        <!-- component -->
+<div class="justify-center flex h-[66vh] w-full items-center bg-pink-100">
+    <section
+      class="h-fit w-80 rotate-3 transform space-y-6 rounded-2xl bg-white p-6 duration-300 hover:rotate-0 border-[1px] border-black"
+    >
+      <header class="text-center text-3xl font-extrabold text-gray-600">
+        <p id="cityName" class="uppercase"></p>
+      </header>
+      <div>
+        <p class="text-center text-xl font-bold text-gray-900">
+          Temp : <span id="temp"></span>&deg;C.
+        </p>
+        <p class="text-center text-xl font-bold text-gray-900">
+            Feels like : <span id="feels_like"></span>
+            &deg;C.</p>
+        
+        <p class="text-center text-3xl font-extrabold text-[#FE5401]">Max temp : <span id="max_temp"></span>&deg;C.</p>
+        <p class="text-center text-3xl font-extrabold text-[#FE5401]">Min temp : <span id="min_temp"></span>&deg;C.</p>
+      </div>
+  
+      <footer class="mb-10 flex justify-center flex-col">
+        <p class="text-center text-2xl font-extrabold text-[#FE5401]">Wind speed : <span id="wind_speed"></span>mph</p>
+        <p class="text-center text-2xl font-extrabold text-[#FE5401]">Wind Degrees : <span id="wind_degrees"></span>&deg</p>
+        <p class="text-center text-2xl font-extrabold text-[#FE5401]">Cloud pct : <span id="cloud_pct"></span>%</p>
+        <p class="text-center text-2xl font-extrabold text-[#FE5401]">Humidity : <span id="humidity"></span>%</p>
+        <p class="text-center text-2xl font-extrabold text-[#FE5401]">sunrise : <span id="sunrise"></span></p>
+        <p class="text-center text-2xl font-extrabold text-[#FE5401]">sunset : <span id="sunset"></span></p>
+    </footer>
+    </section>
+  </div>
+    </div>
+    
+    <div class="px-6 pt-6 flex justify-between items-center font-bold ">
+        <p>Popular Cities</p>
+        <button type="submit" id="submitUpdate" class="bg-pink-100 p-2 rounded-sm">Update</button>
+    </div>
+<!-- component -->
+<div class="overflow-x-auto rounded-lg border border-gray-200 shadow-md m-5">
+    <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
+      <thead class="bg-gray-50">
+        <tr>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900 sticky top-0 left-0 bg-pink-100">City Name</th>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900">TEMP </th>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900">FEELS_LIKE </th>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900">MAX_TEMP </th>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900">MIN_TEMP </th>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900">WIND_SPEED </th>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900">WIND_DEGREES </th>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900">CLOUD_PCT </th>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900">HUMIDITY </th>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900">SUNRISE </th>
+            <th scope="col" class="px-6 py-4 font-medium text-gray-900">SUNSET </th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+        <tr class="hover:bg-gray-50">
+          <th class="flex gap-3 px-6 py-4 font-normal text-gray-900 bg-pink-100 sticky top-0 left-0 overflow-x-auto">
+            <div class="text-sm">
+              <div class="font-medium text-gray-700 ">Hyderabad</div>
+            </div>
+          </th>
+          <td class="px-6 py-4"><p><span id="temp1" class="text-black"></span>&degC</p></td>
+          <td class="px-6 py-4"><p><span id="feels_like1" class="text-black"></span>&degC.</p></td>
+          <td class="px-6 py-4"><p><span id="max_temp1"></span>&degC.</p></td>
+          <td class="px-6 py-4"><p><span id="min_temp1"></span>&degC.</p></td>
+          <td class="px-6 py-4"><p><span id="wind_speed1"></span>mph</p></td>
+          <td class="px-6 py-4"><p><span id="wind_degrees1"></span>&deg</p></td>
+          <td class="px-6 py-4"><p><span id="cloud_pct1" class="text-black"></span>%</p></td>
+          <td class="px-6 py-4"><p><span id="humidity1"></span>%</p></td>
+          <td class="px-6 py-4"><p><span id="sunrise1"></span></p></td>
+          <td class="px-6 py-4"><p><span id="sunset1"></span></p></td>
+          
+        </tr>
+        <tr class="hover:bg-gray-50">
+          <th class="flex gap-3 px-6 py-4 font-normal text-gray-900 bg-pink-100 sticky top-0 left-0 overflow-x-auto">
+            <div class="text-sm">
+              <div class="font-medium text-gray-700 ">Delhi</div>
+            </div>
+          </th>
+          <td class="px-6 py-4"><p><span id="temp2" class="text-black"></span>&degC</p></td>
+          <td class="px-6 py-4"><p><span id="feels_like2" class="text-black"></span>&degC.</p></td>
+          <td class="px-6 py-4"><p><span id="max_temp2"></span>&degC.</p></td>
+          <td class="px-6 py-4"><p><span id="min_temp2"></span>&degC.</p></td>
+          <td class="px-6 py-4"><p><span id="wind_speed2"></span>mph</p></td>
+          <td class="px-6 py-4"><p><span id="wind_degrees2"></span>&deg</p></td>
+          <td class="px-6 py-4"><p><span id="cloud_pct2" class="text-black"></span>%</p></td>
+          <td class="px-6 py-4"><p><span id="humidity2"></span>%</p></td>
+          <td class="px-6 py-4"><p><span id="sunrise2"></span></p></td>
+          <td class="px-6 py-4"><p><span id="sunset2"></span></p></td>
+          
+        </tr>
+        <tr class="hover:bg-gray-50">
+          <th class="flex gap-3 px-6 py-4 font-normal text-gray-900 bg-pink-100 sticky top-0 left-0 overflow-x-auto">
+            <div class="text-sm">
+              <div class="font-medium text-gray-700 ">Jaipur</div>
+            </div>
+          </th>
+          <td class="px-6 py-4"><p><span id="temp3" class="text-black"></span>&degC</p></td>
+          <td class="px-6 py-4"><p><span id="feels_like3" class="text-black"></span>&degC.</p></td>
+          <td class="px-6 py-4"><p><span id="max_temp3"></span>&degC.</p></td>
+          <td class="px-6 py-4"><p><span id="min_temp3"></span>&degC.</p></td>
+          <td class="px-6 py-4"><p><span id="wind_speed3"></span>mph</p></td>
+          <td class="px-6 py-4"><p><span id="wind_degrees3"></span>&deg</p></td>
+          <td class="px-6 py-4"><p><span id="cloud_pct3" class="text-black"></span>%</p></td>
+          <td class="px-6 py-4"><p><span id="humidity3"></span>%</p></td>
+          <td class="px-6 py-4"><p><span id="sunrise3"></span></p></td>
+          <td class="px-6 py-4"><p><span id="sunset3"></span></p></td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 
